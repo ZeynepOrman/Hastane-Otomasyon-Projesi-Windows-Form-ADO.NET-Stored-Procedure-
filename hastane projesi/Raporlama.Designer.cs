@@ -240,7 +240,7 @@ namespace hastane_projesi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Thistle;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1435, 847);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.comboBox2);

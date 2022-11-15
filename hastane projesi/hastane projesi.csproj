@@ -125,5 +125,28 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\1345874.png" />
+    <Content Include="Images\149347.png" />
+    <Content Include="Images\2235790.png" />
+    <Content Include="Images\2639912_save_icon.png" />
+    <Content Include="Images\3309748.png" />
+    <Content Include="Images\424969-200.png" />
+    <Content Include="Images\52-521653_blue-close-button-png-close-button-blue-png.png" />
+    <Content Include="Images\524542-200.png" />
+    <Content Include="Images\back-arrow-blue-circle_z1k9I88u_thumb.jpg" />
+    <Content Include="Images\d3f913b8dd27fac04b26c2c9a903610d.png" />
+    <Content Include="Images\indir.png" />
+    <Content Include="Images\istockphoto-1097493802-170667a.jpg" />
+    <Content Include="Images\red-heart-with-heartbeat-line-medical-background_1017-26835.jpg" />
+    <Content Include="ScreenShots\HastalarSayfasi.jpg" />
+    <Content Include="ScreenShots\HastaneAnasayfa.jpg" />
+    <Content Include="ScreenShots\HastaneDoktorlarSayfasi.jpg" />
+    <Content Include="ScreenShots\HastaneGirisSayfasi.jpg" />
+    <Content Include="ScreenShots\HastaneKullaniciKayitSayfasi.jpg" />
+    <Content Include="ScreenShots\HastanePolikliniklerSayfasi.jpg" />
+    <Content Include="ScreenShots\HastaneRaporlarSayfasi.jpg" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

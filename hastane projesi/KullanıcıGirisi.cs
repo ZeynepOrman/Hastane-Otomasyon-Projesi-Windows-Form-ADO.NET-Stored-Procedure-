@@ -15,15 +15,10 @@ namespace hastane_projesi
     public partial class KullanıcıGirisi : Form
     {
 
-        SqlConnection con = new SqlConnection("Server=LAPTOP-1NP5U72T; Database= M03; Integrated Security=true;"); 
+        SqlConnection con = new SqlConnection("Server=LAPTOP-1NP5U72T; Database= HastaneOtomasyonuSQL; Integrated Security=true;"); 
         public KullanıcıGirisi()
         {
             InitializeComponent();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -46,7 +41,7 @@ namespace hastane_projesi
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "KGiris";
+            cmd.CommandText = "KGirisHastane";
             cmd.Parameters.AddWithValue("KullaniciAdi", textBox1.Text);
             cmd.Parameters.AddWithValue("Sifre", textBox2.Text);
 
@@ -74,7 +69,7 @@ namespace hastane_projesi
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "KKayit";
+            cmd.CommandText = "KKayitHastane";
             cmd.Parameters.AddWithValue("KullaniciAdi", textBox3.Text);
             cmd.Parameters.AddWithValue("Sifre", textBox4.Text);
             cmd.Parameters.AddWithValue("Email", textBox5.Text);
@@ -97,9 +92,5 @@ namespace hastane_projesi
             Application.Exit();
         }
 
-        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
     }
 }
