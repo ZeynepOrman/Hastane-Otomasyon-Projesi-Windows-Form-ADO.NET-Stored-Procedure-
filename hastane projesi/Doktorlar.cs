@@ -180,32 +180,6 @@ namespace hastane_projesi
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int sec = dataGridView1.SelectedCells[0].RowIndex;
-            textBox1.Text = dataGridView1.Rows[sec].Cells[0].Value.ToString();
-            textBox2.Text = dataGridView1.Rows[sec].Cells[1].Value.ToString();
-            textBox3.Text = dataGridView1.Rows[sec].Cells[2].Value.ToString();
-            textBox4.Text = dataGridView1.Rows[sec].Cells[3].Value.ToString();
-            textBox5.Text = dataGridView1.Rows[sec].Cells[4].Value.ToString();
-            maskedTextBox1.Text = dataGridView1.Rows[sec].Cells[5].Value.ToString();
-            textBox7.Text = dataGridView1.Rows[sec].Cells[6].Value.ToString();
-            textBox6.Text = dataGridView1.Rows[sec].Cells[7].Value.ToString();
-            textBox8.Text = dataGridView1.Rows[sec].Cells[8].Value.ToString();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Anasayfa git = new Anasayfa();
-            git.Show();
-            this.Hide();
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void button7_Click(object sender, EventArgs e)
         {
 
@@ -225,8 +199,33 @@ namespace hastane_projesi
             cmd.ExecuteNonQuery();
             con.Close();
 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int sec = dataGridView1.SelectedCells[0].RowIndex;
+            textBox1.Text = dataGridView1.Rows[sec].Cells[0].Value.ToString();
+            textBox2.Text = dataGridView1.Rows[sec].Cells[1].Value.ToString();
+            textBox3.Text = dataGridView1.Rows[sec].Cells[2].Value.ToString();
+            textBox4.Text = dataGridView1.Rows[sec].Cells[3].Value.ToString();
+            textBox5.Text = dataGridView1.Rows[sec].Cells[4].Value.ToString();
+            maskedTextBox1.Text = dataGridView1.Rows[sec].Cells[5].Value.ToString();
+            textBox7.Text = dataGridView1.Rows[sec].Cells[6].Value.ToString();
+            textBox6.Text = dataGridView1.Rows[sec].Cells[7].Value.ToString();
+            textBox8.Text = dataGridView1.Rows[sec].Cells[8].Value.ToString();
+        }
 
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Anasayfa git = new Anasayfa();
+            git.Show();
+            this.Hide();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

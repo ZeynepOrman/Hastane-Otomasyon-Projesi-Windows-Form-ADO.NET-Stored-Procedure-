@@ -36,19 +36,18 @@ namespace hastane_projesi
             dataGridView1.DataSource = dt;
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Getir2();
-        }
-
         private void Error_Handle(string message = "Güncelleme başarısız!")
         {
             MessageBox.Show(message);
 
         }
+       
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            Getir2();
+        }
 
-
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text) ||
     string.IsNullOrWhiteSpace(textBox3.Text) || string.IsNullOrWhiteSpace(textBox4.Text) || string.IsNullOrWhiteSpace(textBox5.Text) ||
@@ -61,17 +60,17 @@ namespace hastane_projesi
             try
             {
                 con.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "EklePoliklinikler";
-            cmd.Parameters.AddWithValue("PoliklinikNo", textBox1.Text);
-            cmd.Parameters.AddWithValue("PoliklinikAdi", textBox2.Text);
-            cmd.Parameters.AddWithValue("PoliklinikUzmanSayisi", textBox3.Text);
-            cmd.Parameters.AddWithValue("PoliklinikBaşHekimi", textBox4.Text);
-            cmd.Parameters.AddWithValue("PoliklinikBaşHemşiresi", textBox5.Text);
-            cmd.Parameters.AddWithValue("YatakSayisi", textBox6.Text);
-            int result = cmd.ExecuteNonQuery();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "EklePoliklinikler";
+                cmd.Parameters.AddWithValue("PoliklinikNo", textBox1.Text);
+                cmd.Parameters.AddWithValue("PoliklinikAdi", textBox2.Text);
+                cmd.Parameters.AddWithValue("PoliklinikUzmanSayisi", textBox3.Text);
+                cmd.Parameters.AddWithValue("PoliklinikBaşHekimi", textBox4.Text);
+                cmd.Parameters.AddWithValue("PoliklinikBaşHemşiresi", textBox5.Text);
+                cmd.Parameters.AddWithValue("YatakSayisi", textBox6.Text);
+                int result = cmd.ExecuteNonQuery();
 
 
                 if (result > 0)
@@ -97,22 +96,22 @@ namespace hastane_projesi
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click_1(object sender, EventArgs e)
         {
             try
             {
                 con.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "YenilePoliklinikler";
-            cmd.Parameters.AddWithValue("PoliklinikNo", textBox1.Text);
-            cmd.Parameters.AddWithValue("PoliklinikAdi", textBox2.Text);
-            cmd.Parameters.AddWithValue("PoliklinikUzmanSayisi", textBox3.Text);
-            cmd.Parameters.AddWithValue("PoliklinikBaşHekimi", textBox4.Text);
-            cmd.Parameters.AddWithValue("PoliklinikBaşHemşiresi", textBox5.Text);
-            cmd.Parameters.AddWithValue("YatakSayisi", textBox6.Text);
-            int result = cmd.ExecuteNonQuery();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "YenilePoliklinikler";
+                cmd.Parameters.AddWithValue("PoliklinikNo", textBox1.Text);
+                cmd.Parameters.AddWithValue("PoliklinikAdi", textBox2.Text);
+                cmd.Parameters.AddWithValue("PoliklinikUzmanSayisi", textBox3.Text);
+                cmd.Parameters.AddWithValue("PoliklinikBaşHekimi", textBox4.Text);
+                cmd.Parameters.AddWithValue("PoliklinikBaşHemşiresi", textBox5.Text);
+                cmd.Parameters.AddWithValue("YatakSayisi", textBox6.Text);
+                int result = cmd.ExecuteNonQuery();
 
 
                 if (result > 0)
@@ -139,16 +138,17 @@ namespace hastane_projesi
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+
+        private void button4_Click_1(object sender, EventArgs e)
         {
             try
             {
                 con.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "SilPoliklinikler";
-            cmd.Parameters.AddWithValue("PoliklinikNo", textBox1.Text);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SilPoliklinikler";
+                cmd.Parameters.AddWithValue("PoliklinikNo", textBox1.Text);
                 int result = cmd.ExecuteNonQuery();
 
 
@@ -175,75 +175,22 @@ namespace hastane_projesi
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int sec = dataGridView1.SelectedCells[0].RowIndex;
-            textBox1.Text = dataGridView1.Rows[sec].Cells[0].Value.ToString();
-            textBox2.Text = dataGridView1.Rows[sec].Cells[1].Value.ToString();
-            textBox3.Text = dataGridView1.Rows[sec].Cells[2].Value.ToString();
-            textBox4.Text = dataGridView1.Rows[sec].Cells[3].Value.ToString();
-            textBox5.Text = dataGridView1.Rows[sec].Cells[4].Value.ToString();
-            textBox6.Text = dataGridView1.Rows[sec].Cells[5].Value.ToString();
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            Getir2();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e)
         {
             con.Open();
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = con;
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "EklePoliklinikler";
-            cmd.Parameters.AddWithValue("PoliklinikAdi", textBox2.Text);
-            cmd.Parameters.AddWithValue("PoliklinikUzmanSayisi", textBox3.Text);
-            cmd.Parameters.AddWithValue("PoliklinikBasHekimi", textBox4.Text);
-            cmd.Parameters.AddWithValue("PoliklinikBasHemsire", textBox5.Text);
-            cmd.Parameters.AddWithValue("YatakSayisi", textBox6.Text);
+            cmd.CommandText = "Aramayappoliklinik";
+            cmd.Parameters.AddWithValue("PoliklinikNo", textBox7.Text);
+            cmd.Parameters.AddWithValue("PoliklinikAdi", textBox8.Text);
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
             cmd.ExecuteNonQuery();
             con.Close();
-            Getir2();
-        }
-
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-            con.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "YenilePoliklinikler";
-
-            cmd.Parameters.AddWithValue("PoliklinikNo", textBox1.Text);
-            cmd.Parameters.AddWithValue("PoliklinikAdi", textBox2.Text);
-            cmd.Parameters.AddWithValue("PoliklinikUzmanSayisi", textBox3.Text);
-            cmd.Parameters.AddWithValue("PoliklinikBasHekimi", textBox4.Text);
-            cmd.Parameters.AddWithValue("PoliklinikBasHemsire", textBox5.Text);
-            cmd.Parameters.AddWithValue("YatakSayisi", textBox6.Text);
-            cmd.ExecuteNonQuery();
-            con.Close();
-            Getir2();
-        }
-
-
-        private void button4_Click_1(object sender, EventArgs e)
-        {
-            con.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "SilPoliklinikler";
-            cmd.Parameters.AddWithValue("PoliklinikNo", textBox1.Text);
-            cmd.ExecuteNonQuery();
-            con.Close();
-            Getir2();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -268,25 +215,6 @@ namespace hastane_projesi
             git.Show();
             this.Hide();
         }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            con.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "Aramayappoliklinik";
-            cmd.Parameters.AddWithValue("PoliklinikNo", textBox7.Text);
-            cmd.Parameters.AddWithValue("PoliklinikAdi", textBox8.Text);
-
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
-            cmd.ExecuteNonQuery();
-            con.Close();
-        }
-
 
     }
 }

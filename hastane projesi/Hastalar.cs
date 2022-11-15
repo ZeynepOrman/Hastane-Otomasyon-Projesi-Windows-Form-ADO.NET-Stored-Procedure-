@@ -192,6 +192,45 @@ namespace hastane_projesi
             }
         }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "Aramayaphasta";
+            cmd.Parameters.AddWithValue("HastaNo", textBox11.Text);
+            cmd.Parameters.AddWithValue("HastaAdSoyad", textBox8.Text);
+            cmd.Parameters.AddWithValue("HastaTCNo", textBox4.Text);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+        private void Hastalar_Load(object sender, EventArgs e)
+        {
+
+            SqlCommand komut = new SqlCommand();
+            komut.Connection = con;
+            komut.CommandType = CommandType.StoredProcedure;
+            komut.CommandText = "DoktorNoSec";
+            SqlDataReader dr;
+            con.Open();
+            dr = komut.ExecuteReader();
+
+            while (dr.Read())
+            {
+                comboBox1.Items.Add(dr["DoktorNo"]);
+            }
+
+
+
+            con.Close();
+        }
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int sec = dataGridView1.SelectedCells[0].RowIndex;
@@ -220,46 +259,6 @@ namespace hastane_projesi
             this.Hide();
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            con.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = "Aramayaphasta";
-            cmd.Parameters.AddWithValue("HastaNo", textBox11.Text);
-            cmd.Parameters.AddWithValue("HastaAdSoyad", textBox8.Text);
-            cmd.Parameters.AddWithValue("HastaTCNo", textBox4.Text);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
-            cmd.ExecuteNonQuery();
-            con.Close();
-        }
-
-        private void Hastalar_Load(object sender, EventArgs e)
-        {
-          
-            SqlCommand komut = new SqlCommand();
-            komut.Connection = con;
-            komut.CommandType = CommandType.StoredProcedure;
-            komut.CommandText = "DoktorNoSec";
-            SqlDataReader dr;
-            con.Open();
-            dr = komut.ExecuteReader();
-
-            while(dr.Read())
-            {
-                comboBox1.Items.Add(dr["DoktorNo"]);
-            }
-
-
-
-            con.Close();
-        }
-
-        
     }
 }
 
