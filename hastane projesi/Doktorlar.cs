@@ -71,8 +71,7 @@ namespace hastane_projesi
         private void button1_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textBox2.Text) || string.IsNullOrWhiteSpace(textBox3.Text) ||
-    string.IsNullOrWhiteSpace(textBox4.Text) || string.IsNullOrWhiteSpace(textBox5.Text) || string.IsNullOrWhiteSpace(textBox6.Text) ||
-    string.IsNullOrWhiteSpace(maskedTextBox1.Text) || string.IsNullOrWhiteSpace(textBox7.Text) || comboBox1.SelectedItem == null)
+    string.IsNullOrWhiteSpace(textBox4.Text) || string.IsNullOrWhiteSpace(textBox5.Text) || string.IsNullOrWhiteSpace(maskedTextBox1.Text) || string.IsNullOrWhiteSpace(textBox7.Text) || comboBox1.SelectedItem == null)
             {
                 MessageBox.Show("Lütfen boş kutuları doldurunuz.");
 
@@ -93,7 +92,7 @@ namespace hastane_projesi
             cmd.Parameters.AddWithValue("Unvani", textBox5.Text);
             cmd.Parameters.AddWithValue("TelefonNumarasi", maskedTextBox1.Text);
             cmd.Parameters.AddWithValue("Adres", textBox7.Text);
-            cmd.Parameters.AddWithValue("DogumTarihi", textBox6.Text);
+            cmd.Parameters.AddWithValue("DogumTarihi", dateTimePicker1.Value.ToShortDateString());
             cmd.Parameters.AddWithValue("PoliklinikNo", comboBox1.SelectedItem);
                 int result = cmd.ExecuteNonQuery();
 
@@ -139,7 +138,7 @@ namespace hastane_projesi
             cmd.Parameters.AddWithValue("Unvani", textBox5.Text);
             cmd.Parameters.AddWithValue("TelefonNumarasi", maskedTextBox1.Text);
             cmd.Parameters.AddWithValue("Adres", textBox7.Text);
-            cmd.Parameters.AddWithValue("DogumTarihi", textBox6.Text);
+            cmd.Parameters.AddWithValue("DogumTarihi", dateTimePicker1.Value.ToShortDateString());
             cmd.Parameters.AddWithValue("PoliklinikNo", comboBox1.SelectedItem);
             int result = cmd.ExecuteNonQuery();
 
@@ -232,7 +231,7 @@ namespace hastane_projesi
             textBox5.Text = dataGridView1.Rows[sec].Cells[4].Value.ToString();
             maskedTextBox1.Text = dataGridView1.Rows[sec].Cells[5].Value.ToString();
             textBox7.Text = dataGridView1.Rows[sec].Cells[6].Value.ToString();
-            textBox6.Text = dataGridView1.Rows[sec].Cells[7].Value.ToString();
+            dateTimePicker1.Text = dataGridView1.Rows[sec].Cells[3].Value.ToString();
             comboBox1.Text = dataGridView1.Rows[sec].Cells[8].Value.ToString();
         }
 
@@ -248,7 +247,6 @@ namespace hastane_projesi
         {
             Application.Exit();
         }
-
 
     }
 }

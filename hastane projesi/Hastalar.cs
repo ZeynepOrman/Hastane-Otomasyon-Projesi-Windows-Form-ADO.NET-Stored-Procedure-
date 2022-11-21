@@ -118,13 +118,13 @@ namespace hastane_projesi
                 cmd.Parameters.AddWithValue("HastaNo", textBox1.Text);
                 cmd.Parameters.AddWithValue("HastaAdSoyad", textBox2.Text);
                 cmd.Parameters.AddWithValue("HastaTCNo", textBox3.Text);
-                cmd.Parameters.AddWithValue("DogumTarihi", dateTimePicker2.Value);
+                cmd.Parameters.AddWithValue("DogumTarihi", dateTimePicker2.Value.ToShortDateString());
                 cmd.Parameters.AddWithValue("Kilo", textBox7.Text);
                 cmd.Parameters.AddWithValue("Boy", textBox5.Text);
                 cmd.Parameters.AddWithValue("Yas", textBox6.Text);
                 cmd.Parameters.AddWithValue("Recete", textBox10.Text);
                 cmd.Parameters.AddWithValue("RaporDurumu", textBox9.Text);
-                cmd.Parameters.AddWithValue("RandevuTarihi", dateTimePicker1.Value);
+                cmd.Parameters.AddWithValue("RandevuTarihi", dateTimePicker1.Value.ToShortDateString());
                 cmd.Parameters.AddWithValue("DoktorNo", comboBox1.SelectedItem);
                  int result=cmd.ExecuteNonQuery();
 
