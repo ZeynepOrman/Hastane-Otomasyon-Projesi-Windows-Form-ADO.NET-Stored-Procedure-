@@ -44,14 +44,35 @@ namespace hastane_projesi
         private void Error_Handle(string message = "Güncelleme başarısız!")
         {
             MessageBox.Show(message);
-
         }
+
+        private void Doktorlar_Load(object sender, EventArgs e)
+        {
+            SqlCommand komut = new SqlCommand();
+            komut.Connection = con;
+            komut.CommandType = CommandType.StoredProcedure;
+            komut.CommandText = "PoliklinikNoSec";
+            SqlDataReader dr;
+            con.Open();
+            dr = komut.ExecuteReader();
+
+            while (dr.Read())
+            {
+                comboBox1.Items.Add(dr["PoliklinikNo"]);
+            }
+
+            con.Close();
+        }
+
+
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(textBox2.Text) || string.IsNullOrWhiteSpace(textBox3.Text) ||
     string.IsNullOrWhiteSpace(textBox4.Text) || string.IsNullOrWhiteSpace(textBox5.Text) || string.IsNullOrWhiteSpace(textBox6.Text) ||
-    string.IsNullOrWhiteSpace(maskedTextBox1.Text) || string.IsNullOrWhiteSpace(textBox7.Text) || string.IsNullOrWhiteSpace(textBox8.Text))
+    string.IsNullOrWhiteSpace(maskedTextBox1.Text) || string.IsNullOrWhiteSpace(textBox7.Text) || comboBox1.SelectedItem == null)
             {
                 MessageBox.Show("Lütfen boş kutuları doldurunuz.");
 
@@ -73,7 +94,7 @@ namespace hastane_projesi
             cmd.Parameters.AddWithValue("TelefonNumarasi", maskedTextBox1.Text);
             cmd.Parameters.AddWithValue("Adres", textBox7.Text);
             cmd.Parameters.AddWithValue("DogumTarihi", textBox6.Text);
-            cmd.Parameters.AddWithValue("PoliklinikNo", textBox8.Text);
+            cmd.Parameters.AddWithValue("PoliklinikNo", comboBox1.SelectedItem);
                 int result = cmd.ExecuteNonQuery();
 
 
@@ -119,7 +140,7 @@ namespace hastane_projesi
             cmd.Parameters.AddWithValue("TelefonNumarasi", maskedTextBox1.Text);
             cmd.Parameters.AddWithValue("Adres", textBox7.Text);
             cmd.Parameters.AddWithValue("DogumTarihi", textBox6.Text);
-            cmd.Parameters.AddWithValue("PoliklinikNo", textBox8.Text);
+            cmd.Parameters.AddWithValue("PoliklinikNo", comboBox1.SelectedItem);
             int result = cmd.ExecuteNonQuery();
 
                 if (result > 0)
@@ -212,7 +233,7 @@ namespace hastane_projesi
             maskedTextBox1.Text = dataGridView1.Rows[sec].Cells[5].Value.ToString();
             textBox7.Text = dataGridView1.Rows[sec].Cells[6].Value.ToString();
             textBox6.Text = dataGridView1.Rows[sec].Cells[7].Value.ToString();
-            textBox8.Text = dataGridView1.Rows[sec].Cells[8].Value.ToString();
+            comboBox1.Text = dataGridView1.Rows[sec].Cells[8].Value.ToString();
         }
 
 
@@ -227,5 +248,7 @@ namespace hastane_projesi
         {
             Application.Exit();
         }
+
+
     }
 }
