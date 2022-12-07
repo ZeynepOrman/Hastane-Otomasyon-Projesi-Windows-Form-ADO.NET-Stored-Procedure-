@@ -82,11 +82,6 @@ namespace hastane_projesi
             con.Close();
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void button6_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
